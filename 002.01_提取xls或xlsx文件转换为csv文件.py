@@ -11,13 +11,38 @@ start_time = time.time()
 excel_file_path = 'AAA_个股_涨幅排名_2025-01月_2025-01-24.xls'
 csv_file_path = excel_file_path + '.csv'
 
-# 读取Excel文件（不跳过任何行）
-df_excel = pd.read_excel(excel_file_path, sheet_name='提取结果')
+# 读取Excel文件的第一个工作表（不跳过任何行，这里假设是第一个sheet）
+# df_excel = pd.read_excel(excel_file_path, sheet_name='提取结果')
+df_excel = pd.read_excel(excel_file_path, sheet_name=0)
+
+
+
+
+## ----------------------------------------------------------------
+## 以下无效代码
+
+# # 检测并移除重复的标题行
+# header_row = df_excel.columns.tolist()
+# duplicate_header_mask = df_excel.apply(lambda row: row.tolist() == header_row, axis=1)
+# df_excel = df_excel[~duplicate_header_mask]
+## ----------------------------------------------------------------
+
+# 获取第一行第一列的内容作为基准
+header_first_column_value = df_excel.iloc[0, 0]
 
 # 检测并移除重复的标题行
-header_row = df_excel.columns.tolist()
-duplicate_header_mask = df_excel.apply(lambda row: row.tolist() == header_row, axis=1)
-df_excel = df_excel[~duplicate_header_mask]
+# 创建一个布尔掩码，默认为True，表示保留该行
+mask = (df_excel.iloc[:, 0] != header_first_column_value) | (df_excel.index == 0)
+
+# 应用布尔掩码过滤DataFrame
+df_cleaned = df_excel[mask]
+
+# 打印所有列名以确认列名正确
+print("所有列名:", df_cleaned.columns.tolist())
+
+
+
+
 
 # 保存为CSV文件
 df_excel.to_csv(csv_file_path, index=False, encoding='utf-8-sig')

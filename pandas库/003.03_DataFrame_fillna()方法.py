@@ -20,6 +20,8 @@
 
     # downcast：dict, default is None，字典中的项为，为类型向下转换规则。或者为字符串“infer”，此时会在合适的等价类型之间进行向下转换，
     #         比如float64 to int64 if possible。
+
+
 # =================================================================================================
 
 
@@ -34,7 +36,7 @@ print(d)
 
 print('\n\n-------------------------- 设置NaN ---------------------------')
 for i in range(len(a)):
-    a[i,:i] = np.nan        # 在numpy库中：a[i, j]  这里逗号分隔行列，即：i 表示行索引，j 表示列索引。
+    a[i,:i] = np.nan        # 在numpy库中：a[i, j]  这里逗号分隔行列，即：i 表示“行”索引， j 表示“列”索引。
                                         # a[i, :j]：获取第 i 行中从第0列到第 j-1 列的所有元素（不包括第 j 列）。
                                         # a[:i, j]：获取从第0行到第 i-1 行的所有行中的第 j 列的所有元素。
 a[6,0] = 100.0
@@ -43,6 +45,31 @@ print(d)
 print('\n\n-------------------------- 用0填补空值:  d2 = d.fillna(value=0) ---------------------------')
 d2 = d.fillna(value=0)
 print('d2: \n',d2)
-print('\n\nd: \n', d)
+print('\nd(原值不变): \n', d)
 
 
+
+print('\n\n\n\n\n\n')
+
+print('\n\n-------------------------- 用前一行的值填补空值:  d2.fillna(method=\'pad\',axis=0) ---------------------------')
+d2 = d.fillna(method='pad',axis=0)      # 'pad' 或 'ffill'（forward fill）：使用前一个有效观测值向前填充（即向右或向下，取决于 axis 参数）。
+                                        # 如果 axis=0 或 'index'，则沿着行的方向进行填充，即对每一列分别用上一行的有效值填充该列中的缺失值
+                                        # (method='pad',axis=0)：即：从上向下填充
+print(d2)
+# print('\nd(原值不变): \n', d)
+
+
+print('\n\n-------------------------- 用后一列的值填补空值:  d2.fillna(method=\'backfill\', axis=1) ---------------------------')
+d2 = d.fillna(method='backfill', axis=1)      # 'bfill' 或 'backfill'：使用下一个有效观测值向后填充（即向左或向上，取决于 axis 参数）。
+                                              # 如果 axis=1 或 'columns'，则沿着列的方向进行填充，即对每一行分别用前一列的有效值填充该行中的缺失值。
+                                              # (method='backfill', axis=1)：即：从右向左填充
+print(d2)
+print('\nd(原值不变): \n', d)
+
+
+
+
+print('\n\n-------------------------- 每条轴上，最多填补3个, 填补值为-1:  d2.fillna(value=-1,axis=0, limit=3) ---------------------------')
+d2 = d.fillna(value=-1,axis=0, limit=3)
+print(d2)
+print('\nd(原值不变): \n', d)

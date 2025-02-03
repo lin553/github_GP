@@ -114,8 +114,8 @@ print(df)
 
 print('\n------------------------8---------------------------')
 # 导出为 CSV 文件
-df.to_csv('./pandas库/003.02.output.csv', index=False)
-print('导出为 CSV 文件: ','003.02.output.csv')
+df.to_csv('./pandas库/003.02.输出数据.csv', index=False)
+print('导出为 CSV 文件: ','003.02.输出数据.csv')
 
 
 print('\n------------------------9---------------------------')

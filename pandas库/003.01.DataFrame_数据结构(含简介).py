@@ -142,3 +142,9 @@ data = {
 df = pd.DataFrame(data, index = ["day1", "day2", "day3"])
 print(df)
 print('\n df.loc[\'day1\']: 返回指定索引行: \n', df.loc['day1'])
+
+
+
+
+
+# ========================== 完 ===========================

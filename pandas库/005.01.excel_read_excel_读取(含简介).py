@@ -60,3 +60,8 @@ df = pd.read_excel('./pandas库/005.01.xlsx',sheet_name=0,skiprows=1)  #sheet_na
 # 打印读取的 DataFrame
 print(df)
 print('\n', type(df))
+
+
+
+
+# ========================== 完 ===========================

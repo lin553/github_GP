@@ -58,3 +58,9 @@ print(type(str_str))
 print('\n--------------4--------------')
 print(r"将 DataFrame 转换为 JSON 文件，指定 orient='records'")
 df.to_json('./pandas库/006.10.json', orient='records', lines=True)
+
+
+
+
+
+# ========================== 完 ===========================

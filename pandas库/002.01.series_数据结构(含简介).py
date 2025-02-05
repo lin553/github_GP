@@ -29,7 +29,7 @@ series = pd.Series([1, 2, 3, 4], name='A')
 print('\n',series,'\n')
 
 
-print('\n==============================')
+print('\n============= 1.显式地设置索引 =================')
 # 如果你想要显式地设置索引，可以这样做：
 custom_index = [1, 2, 3, 4]  # 自定义索引
 series_with_index = pd.Series([1, 2, 3, 4], index=custom_index, name='A')
@@ -38,7 +38,7 @@ print('自定义索引: \n', series_with_index)
 
 
 
-print('\n==============================')
+print('\n============== 2.使用索引查值 ================')
 a = [1, 2, 3]
 myvar = pd.Series(a)
 print(myvar)
@@ -48,7 +48,7 @@ print('索引[1]：',myvar[1])
 
 
 
-print('\n==============================')
+print('\n============= 3.自定义索引[y] =================')
 a = ["Google", "Runoob", "Wiki"]
 myvar = pd.Series(a, index = ["x", "y", "z"])
 print(myvar)
@@ -56,14 +56,19 @@ print('自定义索引[y]: ', myvar['y'])
 
 
 
-print('\n==========使用字典创建pd对象===========')
+print('\n========== 4.使用字典创建pd对象 ===========')
 sites = {1: "value1", 2: "value2", 3: "value3"}
 myvar = pd.Series(sites,name='dict')
 print(myvar)
 
 
 
-print('\n==========字典对象创建pd时：指定需要数据的索引===========')
+print('\n========== 5.字典对象创建pd时：指定需要数据的索引 ===========')
 sites = {1: "value1", 2: "value2", 3: "value3"}
 myvar = pd.Series(sites,name='dict',index=[1,2])
 print(myvar)
+
+
+
+
+# ========================== 完 ===========================

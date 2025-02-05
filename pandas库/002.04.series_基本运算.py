@@ -24,3 +24,8 @@ print('\n series > 2: \n', series > 2)
 print('\n------------3---------------')
 result_sqrt = np.sqrt(series)  # 对每个元素取平方根
 print('result_sqrt: \n',result_sqrt)
+
+
+
+
+# ========================== 完 ===========================

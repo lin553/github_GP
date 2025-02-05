@@ -43,3 +43,9 @@ df.to_excel('./pandas库/005.03.xlsx', sheet_name='Sheet1', index=False)
 with pd.ExcelWriter('./pandas库/005.03.xlsx') as writer:    
     df.to_excel(writer, sheet_name='Sheet2', index=False)
     df.to_excel(writer, sheet_name='Sheet3', index=False)
+
+
+
+
+
+# ========================== 完 ===========================

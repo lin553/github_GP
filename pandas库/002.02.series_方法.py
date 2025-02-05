@@ -62,3 +62,8 @@ print("\n缺失值判断s.isnull()：\n", s.isnull())
 # 排序
 sorted_s = s.sort_values()
 print("\nsorted_s排序后：\n", sorted_s)
+
+
+
+
+# ========================== 完 ===========================

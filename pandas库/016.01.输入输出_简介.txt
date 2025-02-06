@@ -1,0 +1,103 @@
+Pandas Input/Output (输入输出) API 手册
+    Pandas 是一个强大的 Python 数据分析库，它提供了大量的数据操作工具，包括数据的输入和输出（I/O）。
+
+
+以下是 Pandas Input/Output (输入输出) 常用的 API：
+
+读取数据
+方法	                                            描述
+pd.read_csv(filepath, sep, header, index_col)	    从 CSV 文件读取数据。
+pd.read_excel(io, sheet_name)	                    从 Excel 文件读取数据。
+pd.read_json(path_or_buf)	                        从 JSON 文件读取数据。
+pd.read_html(io)	                                从 HTML 文件中读取表格数据。
+pd.read_sql(sql, con)	                            从 SQL 数据库读取数据。
+pd.read_clipboard()	                                从剪贴板读取数据。
+pd.read_parquet(path)	                            从 Parquet 文件读取数据。
+pd.read_feather(path)	                            从 Feather 文件读取数据。
+pd.read_hdf(path, key)	                            从 HDF5 文件读取数据。
+pd.read_pickle(path)	                            从 Pickle 文件读取数据。
+pd.read_sas(filepath)	                            从 SAS 文件读取数据。
+pd.read_spss(filepath)	                            从 SPSS 文件读取数据。
+pd.read_sql_table(table_name, con)	                从 SQL 数据库的表中读取数据。
+pd.read_sql_query(sql, con)	                        执行 SQL 查询并读取结果。
+pd.read_gbq(query)	                                从 Google BigQuery 读取数据。
+
+
+写入数据
+方法	                                    描述
+DataFrame.to_csv(path, sep, index)	        将 DataFrame 写入 CSV 文件。
+DataFrame.to_excel(path, sheet_name)	    将 DataFrame 写入 Excel 文件。
+DataFrame.to_json(path)	                    将 DataFrame 写入 JSON 文件。
+DataFrame.to_html(path)	                    将 DataFrame 写入 HTML 文件。
+DataFrame.to_sql(name, con)             	将 DataFrame 写入 SQL 数据库。
+DataFrame.to_clipboard()	                将 DataFrame 复制到剪贴板。
+DataFrame.to_parquet(path)	                将 DataFrame 写入 Parquet 文件。
+DataFrame.to_feather(path)	                将 DataFrame 写入 Feather 文件。
+DataFrame.to_hdf(path, key)	                将 DataFrame 写入 HDF5 文件。
+DataFrame.to_pickle(path)	                将 DataFrame 写入 Pickle 文件。
+DataFrame.to_markdown(path)	                将 DataFrame 写入 Markdown 文件。
+DataFrame.to_string()	                    将 DataFrame 转换为字符串。
+DataFrame.to_latex(path)	                将 DataFrame 写入 LaTeX 文件。
+DataFrame.to_records()	                    将 DataFrame 转换为 numpy 记录数组。
+DataFrame.to_dict()	                        将 DataFrame 转换为字典。
+DataFrame.to_numpy()	                    将 DataFrame 转换为 numpy 数组。
+
+# =================================================================
+
+
+# 实例
+import pandas as pd
+
+# 读取 CSV 文件
+df = pd.read_csv('data.csv')
+
+# 读取 Excel 文件
+df_excel = pd.read_excel('data.xlsx', sheet_name='Sheet1')
+
+# 读取 JSON 文件
+df_json = pd.read_json('data.json')
+
+# 写入 CSV 文件
+df.to_csv('output.csv', index=False)
+
+# 写入 Excel 文件
+df.to_excel('output.xlsx', sheet_name='Sheet1')
+
+# 写入 JSON 文件
+df.to_json('output.json')
+
+
+# ================================================================
+详细参数说明:pd.read_csv()
+参数	            描述
+filepath	        文件路径。
+sep	                分隔符，默认为 ,。
+header	            指定作为列名的行号，默认为 0（第一行）。
+index_col	        指定作为索引的列号或列名。
+dtype	            指定列的数据类型。
+na_values	        指定哪些值应被视为缺失值。
+
+
+DataFrame.to_csv()
+参数	            描述
+path	            文件路径。
+sep	                分隔符，默认为 ,。
+index	            是否写入索引，默认为 True。
+header	            是否写入列名，默认为 True。
+encoding	        文件编码，默认为 utf-8。
+
+
+pd.read_excel()
+参数	        描述
+io	            文件路径或文件对象。
+sheet_name	    工作表名称或索引，默认为 0。
+header	        指定作为列名的行号，默认为 0。
+index_col	    指定作为索引的列号或列名。
+
+
+DataFrame.to_excel()
+参数	        描述
+path	        文件路径。
+sheet_name	    工作表名称，默认为 Sheet1。
+index	        是否写入索引，默认为 True。
+header	        是否写入列名，默认为 True。

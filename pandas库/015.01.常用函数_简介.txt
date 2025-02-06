@@ -1,0 +1,96 @@
+Pandas 常用函数
+    Pandas 提供了大量用于数据处理和分析的函数，以下是一些常用的函数：
+
+通用函数
+函数	                            描述
+pd.isna(obj)	                    检查对象是否为缺失值（NaN 或 None）。
+pd.notna(obj)	                    检查对象是否不为缺失值。
+pd.isnull(obj)	                    同 pd.isna()，检查对象是否为缺失值。
+pd.notnull(obj)	                    同 pd.notna()，检查对象是否不为缺失值。
+pd.concat(objs, axis)	            沿指定轴连接多个对象（如 Series 或 DataFrame）。
+pd.merge(left, right, on)	        根据指定列合并两个 DataFrame。
+pd.get_dummies(data)	            将分类变量转换为哑变量（One-Hot 编码）。
+pd.cut(x, bins)	                    将连续数据分箱为离散区间。
+pd.qcut(x, q)	                    将数据按分位数分箱。
+pd.to_numeric(arg)	                将参数转换为数值类型。
+pd.to_datetime(arg)	                将参数转换为日期时间类型。
+pd.to_timedelta(arg)	            将参数转换为时间差类型。
+pd.date_range(start, end)	        生成日期范围。
+pd.period_range(start, end)	        生成周期范围。
+pd.timedelta_range(start, end)	    生成时间差范围。
+pd.unique(values)	                返回数组中的唯一值。
+pd.value_counts(values)	            返回数组中每个值的频率。
+pd.factorize(values)	            将数组编码为枚举类型。
+pd.crosstab(index, columns)	        计算交叉表。
+pd.pivot_table(data, values, index, columns)	创建透视表。
+pd.melt(frame)	                    将宽格式数据转换为长格式数据。
+pd.cut(x, bins)	                    将连续数据分箱为离散区间。
+pd.qcut(x, q)	                    将数据按分位数分箱。
+
+
+数学和统计函数
+函数	                            描述
+pd.Series.sum()	                    返回 Series 的和。
+pd.Series.mean()	                返回 Series 的平均值。
+pd.Series.median()	                返回 Series 的中位数。
+pd.Series.min()	                    返回 Series 的最小值。
+pd.Series.max()	                    返回 Series 的最大值。
+pd.Series.std()	                    返回 Series 的标准差。
+pd.Series.var()	                    返回 Series 的方差。
+pd.Series.corr(other)	            返回两个 Series 的相关系数。
+pd.Series.cov(other)	            返回两个 Series 的协方差。
+pd.Series.quantile(q)	            返回 Series 的分位数。
+pd.Series.mode()	                返回 Series 的众数。
+pd.Series.skew()	                返回 Series 的偏度。
+pd.Series.kurt()	                返回 Series 的峰度。
+pd.Series.cumsum()	                返回 Series 的累计和。
+pd.Series.cumprod()	                返回 Series 的累计积。
+pd.Series.cummax()	                返回 Series 的累计最大值。
+pd.Series.cummin()	                返回 Series 的累计最小值。
+
+字符串处理函数
+函数	                            描述
+pd.Series.str.lower()	            将字符串转换为小写。
+pd.Series.str.upper()	            将字符串转换为大写。
+pd.Series.str.strip()	            去除字符串两端的空白字符。
+pd.Series.str.replace(old, new)	    替换字符串中的子串。
+pd.Series.str.contains(pattern)	    检查字符串是否包含指定模式。
+pd.Series.str.split(sep)	        按分隔符拆分字符串。
+pd.Series.str.cat(others)	        连接字符串。
+pd.Series.str.extract(regex)	    使用正则表达式提取子串。
+pd.Series.str.find(sub)	            返回子串的起始位置。
+pd.Series.str.len()	                返回字符串的长度。
+
+时间序列函数
+函数	                            描述
+pd.to_datetime(arg)	                将参数转换为日期时间类型。
+pd.date_range(start, end)	        生成日期范围。
+pd.Timestamp()	                    创建一个时间戳对象。
+pd.Timedelta()	                    创建一个时间差对象。
+pd.Period()	                        创建一个周期对象。
+pd.Series.dt.year	                返回日期时间的年份。
+pd.Series.dt.month	                返回日期时间的月份。
+pd.Series.dt.day	                返回日期时间的天数。
+pd.Series.dt.hour	                返回日期时间的小时数。
+pd.Series.dt.minute	                返回日期时间的分钟数。
+pd.Series.dt.second	                返回日期时间的秒数。
+pd.Series.dt.weekday	            返回日期时间的星期几（0-6）。
+
+# =================================================================
+
+import pandas as pd
+
+# 通用函数
+s = pd.Series([1, 2, 3, None])
+print(pd.isna(s))  # 检查缺失值
+
+# 数学和统计函数
+print(s.sum())  # 计算和
+
+# 字符串处理函数
+s_str = pd.Series(['a', 'b', 'c'])
+print(s_str.str.upper())  # 转换为大写
+
+# 时间序列函数
+dates = pd.to_datetime(['2023-01-01', '2023-02-01'])
+print(dates.dt.month)  # 提取月份

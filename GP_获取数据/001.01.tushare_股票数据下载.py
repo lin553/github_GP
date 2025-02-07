@@ -1,6 +1,7 @@
-# 本程序无法使用，因为要先到它公司（tushare）官网注册，要积分。据说积分不是免费的。
-
-
+失败： 因为要先到它公司（tushare）官网注册，要积分。据说积分不是免费的。
+失败
+失败
+失败
 
 
 # 1.导入各种库（pandas、tushare、matplotlib库等）
@@ -45,7 +46,7 @@ def acquire_code():   #只下载一只股票数据，且只用CSV保存   未来
     df.sort_index(inplace=True)
     #把股票数据按照时间正序排列
     path = os.path.join(os.path.join(os.getcwd(),
-        "./pandas库/股票数据/"), inp_code + ".csv")
+        "./GP_获取数据/股票数据下载/"), inp_code + ".csv")
     #os.path地址拼接，''数据地址''为文件保存路径
     # path = os.path.join(os.path.join(os.getcwd(),"数据地址"),inp_code+"_30M.csv")
     df.to_csv(path)
